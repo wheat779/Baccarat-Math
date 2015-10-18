@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2E6EF7011BC1F7E30052BA4C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EF7001BC1F7E30052BA4C /* main.cpp */; };
+		2E6EF7091BC202B50052BA4C /* Bonus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EF7071BC202B50052BA4C /* Bonus.cpp */; settings = {ASSET_TAGS = (); }; };
+		2E6EF70C1BC22A9E0052BA4C /* Question.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EF70A1BC22A9E0052BA4C /* Question.cpp */; settings = {ASSET_TAGS = (); }; };
+		2E9EC1F01BC768C9002AD2D8 /* Global_Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E9EC1EE1BC768C9002AD2D8 /* Global_Functions.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		2E6EF6FD1BC1F7E30052BA4C /* Baccarat Math */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Baccarat Math"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6EF7001BC1F7E30052BA4C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2E6EF7071BC202B50052BA4C /* Bonus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bonus.cpp; sourceTree = "<group>"; };
+		2E6EF7081BC202B50052BA4C /* Bonus.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bonus.hpp; sourceTree = "<group>"; };
+		2E6EF70A1BC22A9E0052BA4C /* Question.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Question.cpp; sourceTree = "<group>"; };
+		2E6EF70B1BC22A9E0052BA4C /* Question.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Question.hpp; sourceTree = "<group>"; };
+		2E9EC1EE1BC768C9002AD2D8 /* Global_Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Global_Functions.cpp; sourceTree = "<group>"; };
+		2E9EC1EF1BC768C9002AD2D8 /* Global_Functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Global_Functions.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				2E6EF7001BC1F7E30052BA4C /* main.cpp */,
+				2E6EF7071BC202B50052BA4C /* Bonus.cpp */,
+				2E6EF7081BC202B50052BA4C /* Bonus.hpp */,
+				2E9EC1EE1BC768C9002AD2D8 /* Global_Functions.cpp */,
+				2E9EC1EF1BC768C9002AD2D8 /* Global_Functions.hpp */,
+				2E6EF70B1BC22A9E0052BA4C /* Question.hpp */,
+				2E6EF70A1BC22A9E0052BA4C /* Question.cpp */,
 			);
 			path = "Baccarat Math";
 			sourceTree = "<group>";
@@ -119,6 +134,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6EF7011BC1F7E30052BA4C /* main.cpp in Sources */,
+				2E6EF70C1BC22A9E0052BA4C /* Question.cpp in Sources */,
+				2E9EC1F01BC768C9002AD2D8 /* Global_Functions.cpp in Sources */,
+				2E6EF7091BC202B50052BA4C /* Bonus.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +253,7 @@
 				2E6EF7061BC1F7E30052BA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
