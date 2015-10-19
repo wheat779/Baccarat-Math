@@ -13,13 +13,24 @@
 #include <stdio.h>
 #include <string>
 #include "Bonus.hpp"
+#include "Stats.hpp"
 #include "Global_Functions.hpp"
 #include <iostream>
 #include <chrono>
 
 class Question{
     
+    
+    /* 
+     Object used to track the information about the current bonus being
+     asked about, e.g. name and payout ratio
+     */
     Bonus questionBonus;
+    /*
+     Object to track the statistics of how many questions the user has gotten
+     correct and how fast they were at answering each bonus type.
+     */
+    Stats questionStats;
     // Currently asking questions?
     bool questioning = true;
     // Did the user get the question correct?
@@ -33,22 +44,6 @@ class Question{
     // The high and low amount of dollars
     int dollarFloor = 0;
     int dollarCeiling = 300;
-    
-    // Stat tracking variables for each bonus
-    int totalQuestionsAsked = 0;
-    
-    int dragonQuestionsAsked = 0;
-    int dragonsCorrect = 0;
-    std::chrono::duration<double> dragonTimeTaken;
-    
-    int pandaQuestionsAsked = 0;
-    int pandasCorrect = 0;
-    std::chrono::duration<double> pandaTimeTaken;
-    
-    int tieQuestionsAsked = 0;
-    int tiesCorrect = 0;
-    std::chrono::duration<double> tieTimeTaken;
-    
     
 public:
     
@@ -78,10 +73,6 @@ public:
     
     // Output a question and set the correctAnswer var to the value
     void generateQuestion();
-    
-    // Set statistics for user to check progress, etc.
-    void updateStats(std::chrono::duration<double> time, bool correct);
-    void printStats();
     
     //Getters
     int getDollarCeiling();

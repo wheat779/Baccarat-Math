@@ -105,7 +105,8 @@ void Question::runQuestionLoop(){
  Output those statistics of the user enters 'stats' or quit the program if they enter 'exit'.
  */
 void Question::generateQuestion(){
-    std::string answer = "";
+    std::string response = "";
+    bool userWasCorrect = 0;
     
     if(randomBonuses){
         questionBonus.generateRandBonus();
@@ -117,31 +118,33 @@ void Question::generateQuestion(){
     start = std::chrono::system_clock::now();
     
     
-    // Query user and record response
+    // Query user
     std::cout << "How much is " << amount << " on " << questionBonus.getBonusName();
     questionBonus.setCorrectAnswer(amount * questionBonus.getBonusRatio());
     
-    std::string response = getUserStringResponse("");
+    // Record response and determine if it's correct
+    response = getUserStringResponse("");
+    userWasCorrect = response == questionBonus.getCorrectAnswer();
     
     // Measure end time to get total time elapsed waiting for user response
     end = std::chrono::system_clock::now();
     std::chrono::duration<double> userTime = end - start;
     
     
-    if(response == questionBonus.getCorrectAnswer()){
+    if(userWasCorrect){
         std::cout << std::endl << "Correct!" << std::endl;
-        updateStats(userTime, true);
     }
     else if(response == "stats" || response == "Stats"){
-        printStats();
+        questionStats.print();
     }
     else if(response == "quit" || response == "exit"){
         questioning = 0;
     }
     else{
         std::cout << std::endl << "Incorrect! " << amount << " x " << questionBonus.getBonusRatio() << " = " <<questionBonus.getCorrectAnswer() << std::endl << std::endl;
-        updateStats(userTime, false);
     }
+    
+    questionStats.update(questionBonus.getBonusName(), userTime, userWasCorrect);
 }
 
 /*
@@ -178,54 +181,3 @@ int Question::generateAmountOnBonus(){
     }
 }
 
-/*
- Use chrono::duration<double> time information to update the average time for
- that question subtype, and bool correct to update the accuracy for that
- question subtype.
- */
-void Question::updateStats(std::chrono::duration<double> time, bool correct){
-    if(questionBonus.getBonusName() == "dragon"){
-        dragonQuestionsAsked++;
-        dragonTimeTaken += time;
-        if(correct){
-            dragonsCorrect++;
-        }
-    }
-    else if(questionBonus.getBonusName() == "panda"){
-        pandaQuestionsAsked++;
-        pandaTimeTaken += time;
-        if(correct){
-            pandasCorrect++;
-        }
-    }
-    else if(questionBonus.getBonusName() == "tie"){
-        tieQuestionsAsked++;
-        tieTimeTaken += time;
-        if(correct){
-            tiesCorrect++;
-        }
-    }
-    else std::cout << "Error in updateStats";
-}
-
-
-// Print to screen the statistics of the accuracy and reaction time in answering questions
-void Question::printStats(){
-    /* print:
-     ***********
-     Statistics
-     ***********
-     (bonus)accuracy: (double)%
-     (bonus) time per question: (double) seconds
-     */
-    std::cout << "**********" << std::endl << "Statistics" << std::endl << "**********" << std::endl;
-    
-    std::cout << "Dragon accuracy: " << (double(dragonsCorrect)/double(dragonQuestionsAsked))*100 << "%" << std::endl;
-    std::cout << "Dragon time per question: " << double(dragonTimeTaken.count()/dragonQuestionsAsked) << " seconds" << std::endl << std::endl;
-    
-    std::cout << "Panda accuracy: " << (double(pandasCorrect)/double(pandaQuestionsAsked))*100 << "%" << std::endl;
-    std::cout << "Time per panda question: " << double(pandaTimeTaken.count()/pandaQuestionsAsked) << " seconds" << std::endl << std::endl;
-    
-    std::cout << "Tie accuracy: " << (double(tiesCorrect)/double(tieQuestionsAsked))*100 << "%" << std::endl;
-    std::cout << "Time per tie question: " << double(tieTimeTaken.count()/tieQuestionsAsked) << " seconds" << std::endl << std::endl;
-}

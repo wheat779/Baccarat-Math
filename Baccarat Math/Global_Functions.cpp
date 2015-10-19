@@ -60,7 +60,7 @@ bool getUserBoolResponse(std::string boolPrompt){
         else if(response == "no" || response == "No"
                 || response == "nope" || response == "Nope"
                 || response == "false" || response == "False"){
-            return true;
+            return false;
         }
         else{
             std::cout << "I didn't understand \"" << response << "\". please answer with a 'yes' or 'no', etc. " << std::endl;
