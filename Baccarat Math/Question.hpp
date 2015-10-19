@@ -21,15 +21,15 @@ class Question{
     
     Bonus questionBonus;
     // Currently asking questions?
-    bool questioning = 1;
+    bool questioning = true;
     // Did the user get the question correct?
-    bool userWasCorrect = 0;
+    bool userWasCorrect = false;
     // Generate bonuses with dollar chips
-    bool dollarChips = 0;
+    bool dollarChips = false;
     // Uses selected bonus, if applicable
     std::string userSelectedBonus = "NA";
     // Randomly generate bonuses?
-    bool randomBonuses = 0;
+    bool randomBonuses = false;
     // The high and low amount of dollars
     int dollarFloor = 0;
     int dollarCeiling = 300;

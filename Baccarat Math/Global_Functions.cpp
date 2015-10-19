@@ -45,9 +45,9 @@ std::string getUserStringResponse(std::string stringPrompt){
 // Query a user using argument boolPrompt and return a bool (1 = yes, 0 = no)
 bool getUserBoolResponse(std::string boolPrompt){
     
-    bool userAnswered = 0;
+    bool userAnswered = false;
     
-    while(userAnswered == 0){
+    while(userAnswered == false){
         std::cout << boolPrompt << std::endl;
         std::string response = "";
         getline(std::cin, response);
@@ -55,12 +55,12 @@ bool getUserBoolResponse(std::string boolPrompt){
            || response == "yeah" || response == "Yeah"
            || response == "yep" || response == "Yep"
            || response == "true" || response == "True"){
-            return 1;
+            return true;
         }
         else if(response == "no" || response == "No"
                 || response == "nope" || response == "Nope"
                 || response == "false" || response == "False"){
-            return 0;
+            return true;
         }
         else{
             std::cout << "I didn't understand \"" << response << "\". please answer with a 'yes' or 'no', etc. " << std::endl;
@@ -68,5 +68,5 @@ bool getUserBoolResponse(std::string boolPrompt){
         
     }
     std::cout << "Error in getUserBoolResponse()";
-    return 0;
+    return false;
 }

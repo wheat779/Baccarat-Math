@@ -51,7 +51,7 @@ void Question::queryRandomBonus(){
 // Ask user to specify the min and max bonus size for randomly generated bonuses
 void Question::queryFloorCeiling(){
     
-    bool validInput;
+    bool validInput = false;
     while(!validInput){
     dollarFloor = getUserInt("Choose a minimum amount placed on a bonus.");
     dollarCeiling = getUserInt("Choose a maximum amount placed on a bonus.");
@@ -130,7 +130,7 @@ void Question::generateQuestion(){
     
     if(response == questionBonus.getCorrectAnswer()){
         std::cout << std::endl << "Correct!" << std::endl;
-        updateStats(userTime, 1);
+        updateStats(userTime, true);
     }
     else if(response == "stats" || response == "Stats"){
         printStats();
@@ -140,7 +140,7 @@ void Question::generateQuestion(){
     }
     else{
         std::cout << std::endl << "Incorrect! " << amount << " x " << questionBonus.getBonusRatio() << " = " <<questionBonus.getCorrectAnswer() << std::endl << std::endl;
-        updateStats(userTime, 0);
+        updateStats(userTime, false);
     }
 }
 

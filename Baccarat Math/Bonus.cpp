@@ -37,7 +37,7 @@ void Bonus::generateRandBonus(){
 // Take user's input to select which bonus they want to practice
 void Bonus::queryBonus(){
     
-    bool validResponse = 0;
+    bool validResponse = false;
     
     while(!validResponse){
         std::string userResponse = getUserStringResponse("What bonus do you want questions for?");
@@ -45,25 +45,25 @@ void Bonus::queryBonus(){
         if(userResponse == "dragon" || userResponse == "Dragon"){
             name = "dragon";
             payoutRatio = 40;
-            validResponse = 1;
+            validResponse = true;
         }
     
         else if(userResponse == "panda" || userResponse == "Panda"){
             name = "panda";
             payoutRatio = 25;
-            validResponse = 1;
+            validResponse = true;
         }
     
         else if(userResponse == "tie" || userResponse == "Tie"){
             name = "tie";
             payoutRatio = 8;
-            validResponse = 1;
+            validResponse = true;
         }
         // secret bonus inclusion
         else if(userResponse == "tiger" || userResponse == "Tiger"){
             name = "tiger";
             payoutRatio = 30;
-            validResponse = 1;
+            validResponse = true;
         }
         else{
             std::cout << std::endl << "I did not understand " << userResponse << ", please specify a bonus name: e.g. \"panda\", \"dragon\", or \"tie\"" << std::endl;
