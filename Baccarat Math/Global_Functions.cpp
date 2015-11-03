@@ -42,7 +42,7 @@ std::string getUserStringResponse(std::string stringPrompt){
 }
 
 
-// Query a user using argument boolPrompt and return a bool (1 = yes, 0 = no)
+// Query a user using argument boolPrompt and return a bool
 bool getUserBoolResponse(std::string boolPrompt){
     
     bool userAnswered = false;

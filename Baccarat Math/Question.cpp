@@ -134,16 +134,19 @@ void Question::generateQuestion(){
     if(userWasCorrect){
         std::cout << std::endl << "Correct!" << std::endl;
     }
+    // Output statistics if user enters "stats"
     else if(response == "stats" || response == "Stats"){
         questionStats.print();
     }
+    // End loop if user says "exit"
     else if(response == "quit" || response == "exit"){
         questioning = 0;
     }
+    // If user is incorrect, give correct answer
     else{
         std::cout << std::endl << "Incorrect! " << amount << " x " << questionBonus.getBonusRatio() << " = " <<questionBonus.getCorrectAnswer() << std::endl << std::endl;
     }
-    
+    // Update statistics
     questionStats.update(questionBonus.getBonusName(), userTime, userWasCorrect);
 }
 

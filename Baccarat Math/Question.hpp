@@ -42,6 +42,7 @@ class Question{
     // Randomly generate bonuses?
     bool randomBonuses = false;
     // The high and low amount of dollars
+    bool secrectBonusesEnabled = false;
     int dollarFloor = 0;
     int dollarCeiling = 300;
     
@@ -58,9 +59,6 @@ public:
     
     // Ask user if they want to be asked random bonus types
     void queryRandomBonus();
-    
-    // Set user's floor and ceiling for bonuses generated
-    void queryDollarFloorCeiling();
     
     // Make sure the user's input makes sense
     bool checkFloorCeilingInput();

@@ -12,25 +12,18 @@
 #include <stdio.h>
 #include <chrono>
 #include <iostream>
+#include <map>
+#include "bonusStat.hpp"
+#include <string>
 
 #endif /* Stats_hpp */
 
-
+/*
+ Class made for tracking user variables regarding accuracy and time.
+ 
+ */
 class Stats{
-    
-    int totalQuestionsAsked = 0;
-    
-    int dragonQuestionsAsked = 0;
-    int dragonsCorrect = 0;
-    std::chrono::duration<double> dragonTimeTaken;
-    
-    int pandaQuestionsAsked = 0;
-    int pandasCorrect = 0;
-    std::chrono::duration<double> pandaTimeTaken;
-    
-    int tieQuestionsAsked = 0;
-    int tiesCorrect = 0;
-    std::chrono::duration<double> tieTimeTaken;
+    std::map<std::string, bonusStat> statsMap;
     
 public:
     // Set statistics for user to check progress, etc.
